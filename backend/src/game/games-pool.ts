@@ -31,6 +31,4 @@ export const updatePool = (time: number): void => {
   games.forEach(game => {
     game.isOpen = game.time - time < OPEN_TIME
   })
-
-  console.log(games)
 }

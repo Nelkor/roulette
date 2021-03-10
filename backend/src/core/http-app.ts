@@ -10,8 +10,7 @@ export const onHttpRequest = async (
   req: IncomingMessage,
   res: ServerResponse,
 ): Promise<void> => {
-  const now = Date.now()
-  const games = getGames()
+  answer(res, getGames())
 
   res.end()
 }
