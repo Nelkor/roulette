@@ -1,11 +1,14 @@
 import { TICK_INTERVAL } from './game-config'
-import { ceilTime } from './time-helper'
-import { addGame } from './games-pool'
+import { startOfNextMinute } from './time-helper'
+import { addGame, updatePool } from './games-pool'
 
 let lastGameTime = 0
 
 const tick = () => {
-  const time = ceilTime(Date.now())
+  const now = Date.now()
+  const time = startOfNextMinute(now)
+
+  updatePool(now)
 
   if (time == lastGameTime) {
     return

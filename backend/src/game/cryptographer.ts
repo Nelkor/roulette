@@ -32,7 +32,5 @@ export const encrypt = (
     stringified,
     encrypted,
     hashed,
-    key,
-    vector,
   }
 }
