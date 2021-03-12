@@ -1,14 +1,21 @@
-import { Game } from './game-types'
+import { Game, PublicGame } from './game-types'
 import { GAME_LIFETIME, OPEN_TIME } from './game-config'
 import { encrypt } from './cryptographer'
 
 let id = 0
-
 let games: Game[] = []
 
 const getRandomValue = () => Math.floor(Math.random() * 900) + 100
 
-export const getGames = (): Readonly<Game[]> => games
+export const getGames = (): PublicGame[] => games
+  .map(game => {
+    const { id, time, result, isOpen, verification } = game
+    const { stringified, encrypted, hashed } = verification
+
+    return isOpen
+      ? { id, time, encrypted, hashed, result, stringified }
+      : { id, time, encrypted, hashed }
+  })
 
 export const addGame = (time: number): void => {
   id++

@@ -11,3 +11,12 @@ export type Game = {
   isOpen: boolean
   verification: GameVerification
 }
+
+export type PublicGame = Readonly<{
+  id: number
+  time: number
+  encrypted: string
+  hashed: string
+  result?: number
+  stringified?: string
+}>
