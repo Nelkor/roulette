@@ -1,3 +1,5 @@
+import { log } from '@/logger/file-logger'
+
 import { Game, PublicGame } from './game-types'
 import { GAME_LIFETIME, OPEN_TIME } from './game-config'
 import { encrypt } from './cryptographer'
@@ -30,6 +32,8 @@ export const addGame = (time: number): void => {
     isOpen: false,
     verification,
   })
+
+  log()
 }
 
 export const updatePool = (time: number): void => {
