@@ -9,7 +9,7 @@ let games: Game[] = []
 
 const getRandomValue = () => Math.floor(Math.random() * 900) + 100
 
-export const getGames = (): PublicGame[] => games
+export const getGames = (): Readonly<PublicGame[]> => games
   .map(game => {
     const { id, time, result, isOpen, verification } = game
     const { stringified, encrypted, hashed } = verification
