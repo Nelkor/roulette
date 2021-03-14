@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "name": "roulette-page",
+  "version": "1.0.0",
+  "scripts": {
+  },
+  "author": "nelkor",
+  "license": "MIT"
+}
